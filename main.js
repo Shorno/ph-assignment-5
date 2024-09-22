@@ -1,5 +1,8 @@
 const donationBtn = document.getElementById("donationBtn");
 const historyBtn = document.getElementById("historyBtn");
+let receivedDonationAmount = parseFloat(document.getElementById("receivedDonationAmount").innerText);
+const donateBtn = document.getElementById("donateBtn");
+let mainBalance = parseFloat(document.getElementById("mainBalance").innerText);
 
 
 function toggleButton(activeBtn, inactiveBtn) {
@@ -16,3 +19,25 @@ historyBtn.addEventListener("click", () => {
 donationBtn.addEventListener("click", () => {
     toggleButton(donationBtn, historyBtn);
 })
+
+donateBtn.addEventListener("click", () => {
+    makeDonation();
+})
+
+const makeDonation = () => {
+    const donationInputAmount = parseFloat(document.getElementById("donationInputAmount").value);
+    const modal = document.getElementById("my_modal_5");
+
+    if (donationInputAmount > 0 && donationInputAmount <= mainBalance) {
+        receivedDonationAmount += donationInputAmount;
+        mainBalance -= donationInputAmount;
+        document.getElementById("mainBalance").innerText = mainBalance.toFixed(2);
+        document.getElementById("receivedDonationAmount").innerText = receivedDonationAmount.toFixed(2);
+        modal.showModal();
+    } else {
+        alert("Insufficient balance");
+    }
+}
+
+
+
