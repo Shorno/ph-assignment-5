@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css"/>
+    <title>Vite App</title>
+</head>
+<body>
+<header class="bg-base-200">
+    <div class="navbar container mx-auto pt-8 lg:pb-16 pb-8">
+        <div class="navbar-start">
+            <a href="#" class="lg:text-2xl font-bold px-4 py-2 bg-lime-400 rounded-md">Blog</a>
+        </div>
+        <div class="navbar-center gap-4 hidden lg:flex">
+            <img src="public/donation-money.svg" width="40" alt="donation icon">
+            <a class="text-xl font-bold">Donate Bangladesh</a>
+        </div>
+        <div class="navbar-end gap-2 items-center">
+            <img src="public/dollar.svg" width="22" alt="coin icon">
+            <h2 id="totalAmount" class="lg:text-xl font-semibold">5500 BDT</h2>
+        </div>
+    </div>
+</header>
+<section class="container mx-auto flex justify-center items-center gap-4 mt-20">
+    <button id="donationBtn" class="btn bg-lime-400 font-bold">Donation</button>
+    <button id="historyBtn" class="btn font-bold">History</button>
+</section>
+
+<section class="container mx-auto lg:mt-20 mt-10 flex  flex-col gap-8 p-4 lg:p-0 ">
+    <div class="card lg:card-side bg-base-100 border lg:p-4">
+        <figure class="lg:w-1/2 lg:h-96 relative lg:block">
+            <img
+
+                    src="public/donation-img-1.webp"
+                    alt="donation photo1"
+                    class="rounded-md p-4 lg:p-0 object-cover"
+            />
+        </figure>
+        <div class="card-body lg:pb-0 lg:w-1/2 lg:pt-0">
+            <div class="flex gap-4 bg-base-200 py-2 w-fit px-4 rounded-md rounded-tr-none absolute lg:relative top-4 lg:top-0 right-4 border lg:right-0">
+                <img src="public/dollar.svg" width="22" alt="coin icon">
+                <h2 id="receivedDonationAmount" class="lg:text-xl font-semibold">0 BDT</h2>
+            </div>
+            <h2 class="card-title lg:text-2xl lg:font-bold">Donate for Flood at Noakhali, Bangladesh</h2>
+            <p class="lg:text-xl"> The recent floods in Noakhali have caused significant damage to homes infrastructure.
+                Your donation will
+                help provide essential supplies and to those affected by this disaster. Every contribution, big or
+                small, makes difference. Please join us in supporting the relief efforts and making a positive impact on
+                the lives of those in need.</p>
+            <input id="donationInputAmount" type="number" inputmode="numeric" placeholder="Write Donation Amount"
+                   class="input input-bordered w-full"/>
+            <div class="card-actions">
+                <button id="donateBtn" class="btn bg-lime-400 w-full text-xl font-bold">Donate Now</button>
+            </div>
+        </div>
+    </div>
+
+</section>
+<div id="app"></div>
+<script type="module" src="/main.js"></script>
+</body>
+</html>
