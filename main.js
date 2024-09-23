@@ -66,16 +66,20 @@ const historyBtn = getElement("historyBtn");
 const donateBtn = getElement("donateBtn");
 
 const history = getElement("history");
+const donation = getElement("donation");
 
 
 historyBtn.addEventListener("click", () => {
     toggleButton(historyBtn, donationBtn);
     history.classList.remove("hidden");
+    donation.classList.add("hidden");
 });
 
 donationBtn.addEventListener("click", () => {
     toggleButton(donationBtn, historyBtn);
     history.classList.add("hidden");
+    donation.classList.remove("hidden");
+
 });
 
 donateBtn.addEventListener("click", () => {
