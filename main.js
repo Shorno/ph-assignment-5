@@ -4,7 +4,9 @@ const updateElementText = (id, value) => getElement(id).innerText = value.toFixe
 const getInputValue = (id) => getElement(id).value;
 
 let mainBalance = parseFloatFromElement("mainBalance");
-let receivedDonationAmount = parseFloatFromElement("receivedDonationAmount");
+let receivedDonationAmount1 = parseFloatFromElement("receivedDonationAmount");
+let receivedDonationAmount2 = parseFloatFromElement("receivedDonationAmount2");
+let receivedDonationAmount3 = parseFloatFromElement("receivedDonationAmount3");
 
 const toggleButton = (activeBtn, inactiveBtn) => {
     activeBtn.classList.remove("bg-base-200", "text-gray-500");
@@ -13,9 +15,9 @@ const toggleButton = (activeBtn, inactiveBtn) => {
     inactiveBtn.classList.add("bg-base-200", "text-gray-500");
 };
 
-
 let donationHeading = getElement("donationHeading");
-
+let donationHeading2 = getElement("donationHeading2");
+let donationHeading3 = getElement("donationHeading3");
 
 const handleDonationHistory = (donationAmount, donationHeading) => {
     const text = donationHeading.innerText.split(" ").slice(1).join(" ");
@@ -35,24 +37,35 @@ const handleDonationHistory = (donationAmount, donationHeading) => {
 `;
 
     historyCard.appendChild(historyEntry);
-}
+};
 
-
-const handleDonation = (inputId, receivedAmountId) => {
-    const donationAmountString = getInputValue(inputId)
+const handleDonation = (inputId, receivedAmountId, donationHeading, receivedDonationAmount) => {
+    const donationAmountString = getInputValue(inputId);
     if (donationAmountString === "" || isNaN(donationAmountString)) {
         alert("Please enter a valid amount");
         return;
     }
 
-    const donationInputAmount = parseFloat(getElement(inputId).value);
+    const donationInputAmount = parseFloat(donationAmountString);
     const modal = getElement("my_modal_5");
 
     if (donationInputAmount > 0 && donationInputAmount <= mainBalance) {
-        receivedDonationAmount += donationInputAmount;
+
+        const currentReceivedAmount = parseFloatFromElement(receivedAmountId);
+        const newReceivedAmount = currentReceivedAmount + donationInputAmount;
+
         mainBalance -= donationInputAmount;
         updateElementText("mainBalance", mainBalance);
-        updateElementText(receivedAmountId, receivedDonationAmount);
+        updateElementText(receivedAmountId, newReceivedAmount);
+
+        if (receivedAmountId === "receivedDonationAmount") {
+            receivedDonationAmount1 = newReceivedAmount;
+        } else if (receivedAmountId === "receivedDonationAmount2") {
+            receivedDonationAmount2 = newReceivedAmount;
+        } else if (receivedAmountId === "receivedDonationAmount3") {
+            receivedDonationAmount3 = newReceivedAmount;
+        }
+
         modal.showModal();
         handleDonationHistory(donationInputAmount, donationHeading);
     } else {
@@ -60,14 +73,15 @@ const handleDonation = (inputId, receivedAmountId) => {
     }
 };
 
-
 const donationBtn = getElement("donationBtn");
 const historyBtn = getElement("historyBtn");
+
 const donateBtn = getElement("donateBtn");
+const donateBtn2 = getElement("donateBtn2");
+const donateBtn3 = getElement("donateBtn3");
 
 const history = getElement("history");
 const donation = getElement("donation");
-
 
 historyBtn.addEventListener("click", () => {
     toggleButton(historyBtn, donationBtn);
@@ -79,10 +93,14 @@ donationBtn.addEventListener("click", () => {
     toggleButton(donationBtn, historyBtn);
     history.classList.add("hidden");
     donation.classList.remove("hidden");
-
 });
 
 donateBtn.addEventListener("click", () => {
-    handleDonation("donationInputAmount", "receivedDonationAmount");
+    handleDonation("donationInputAmount", "receivedDonationAmount", donationHeading, receivedDonationAmount1);
 });
-
+donateBtn2.addEventListener("click", () => {
+    handleDonation("donationInputAmount2", "receivedDonationAmount2", donationHeading2, receivedDonationAmount2);
+});
+donateBtn3.addEventListener("click", () => {
+    handleDonation("donationInputAmount3", "receivedDonationAmount3", donationHeading3, receivedDonationAmount3);
+});
