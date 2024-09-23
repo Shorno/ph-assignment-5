@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css"/>
+    <title>Blog - Donate Bangladesh</title>
+</head>
+<body class="flex flex-col min-h-screen">
+<div class="flex-grow">
+    <div class="sticky top-0 w-full z-10 backdrop-blur">
+        <header class="bg-base-200">
+            <div class="navbar container mx-auto pt-8 lg:pb-16 pb-8">
+                <div class="navbar-start">
+                    <a href="index.html" class="lg:text-2xl font-bold px-4 py-2 bg-lime-400 rounded-md">Home</a>
+                </div>
+                <div class="navbar-center gap-4 hidden lg:flex">
+                    <img src="/donation-money.svg" width="40" alt="donation icon">
+                    <a class="text-xl font-bold">Donate Bangladesh</a>
+                </div>
+                <div class="navbar-end gap-2 items-center">
+                    <img src="/coin.svg" width="22" alt="coin icon">
+                    <h2 id="mainBalance" class="lg:text-xl font-semibold">90000</h2><span
+                        class="lg:text-xl font-semibold">BDT</span>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <section class="container mx-auto mt-10 p-4">
+        <div class="flex gap-4 items-center">
+            <h2 class="text-4xl font-bold">Important FAQ</h2>
+            <img src="/question-square-svgrepo-com.svg" width="50" alt="question icon">
+        </div>
+        <div class="join join-vertical w-full mt-20">
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" checked="checked"/>
+                <div class="collapse-title text-xl font-medium">What is the Document Object Model (DOM)</div>
+                <div class="collapse-content">
+                    <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the
+                        structure of a document as a tree of objects, allowing programs to manipulate the document's
+                        structure, style, and content. The DOM provides a way for scripts to update the content,
+                        structure, and style of a document while it is being viewed.</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4"/>
+                <div class="collapse-title text-xl font-medium">How do you select an element from DOM?</div>
+                <div class="collapse-content">
+                    <p>
+                        <strong>getElementById</strong>: Selects an element by its ID.<br>
+                        <strong>getElementsByClassName</strong>: Selects elements by their class name.<br>
+                        <strong>getElementsByTagName</strong>: Selects elements by their tag name.<br>
+                        <strong>querySelector</strong>: Selects the first element that matches a CSS selector.<br>
+                        <strong>querySelectorAll</strong>: Selects all elements that match a CSS selector.
+                    </p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4"/>
+                <div class="collapse-title text-xl font-medium">What is event delegation in the context of DOM, and why
+                    is it useful?
+                </div>
+                <div class="collapse-content">
+                    <p>Event delegation is a technique in the DOM where a single event listener is added to a parent
+                        element to manage events for multiple child elements. Instead of adding individual event
+                        listeners to each child element, the parent element's event listener can handle events from its
+                        children using event propagation (bubbling).</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4"/>
+                <div class="collapse-title text-xl font-medium">How do you manipulate an element's attributes and styles
+                    using the DOM?
+                </div>
+                <div class="collapse-content">
+                    <p>To manipulate an element's attributes and styles using the DOM, you can use various methods and
+                        properties provided by the DOM API. The getAttribute method retrieves the value of an attribute,
+                        while the setAttribute method sets the value of an attribute, and the removeAttribute method
+                        removes an attribute. For manipulating styles, you can use the style property to directly set
+                        the CSS properties of an element. For example, you can change the text color, background color,
+                        and font size of an element by setting the color, backgroundColor, and fontSize properties,
+                        respectively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<footer class="footer h-44 footer-center bg-stone-100 mt-20 text-base-content p-4">
+</footer>
+<div id="app"></div>
+<script type="module" src="/main.js"></script>
+</body>
+</html>
