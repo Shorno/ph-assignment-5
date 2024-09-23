@@ -3,7 +3,6 @@ const parseFloatFromElement = (id) => parseFloat(getElement(id).innerText);
 const updateElementText = (id, value) => getElement(id).innerText = value.toFixed(2);
 const getInputValue = (id) => getElement(id).value;
 
-
 let mainBalance = parseFloatFromElement("mainBalance");
 let receivedDonationAmount = parseFloatFromElement("receivedDonationAmount");
 
@@ -66,14 +65,20 @@ const donationBtn = getElement("donationBtn");
 const historyBtn = getElement("historyBtn");
 const donateBtn = getElement("donateBtn");
 
+const history = getElement("history");
+
+
 historyBtn.addEventListener("click", () => {
     toggleButton(historyBtn, donationBtn);
+    history.classList.remove("hidden");
 });
 
 donationBtn.addEventListener("click", () => {
     toggleButton(donationBtn, historyBtn);
+    history.classList.add("hidden");
 });
 
 donateBtn.addEventListener("click", () => {
     handleDonation("donationInputAmount", "receivedDonationAmount");
 });
+

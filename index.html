@@ -28,7 +28,7 @@
     <button id="historyBtn" class="btn font-bold">History</button>
 </section>
 
-<section class="container mx-auto lg:mt-20 mt-10 flex  flex-col gap-8 p-4 lg:p-0 ">
+<section id="donation" class="container mx-auto lg:mt-20 mt-10 flex flex-col gap-8 p-4 lg:p-0  ">
     <div class="card lg:card-side bg-base-100 border lg:p-4">
         <figure class="lg:w-1/2 lg:h-96 relative lg:block">
             <img
@@ -55,8 +55,9 @@
                 help provide essential supplies and to those affected by this disaster. Every contribution, big or
                 small, makes difference. Please join us in supporting the relief efforts and making a positive impact on
                 the lives of those in need.</p>
+            <label for="donationInputAmount"></label>
             <input id="donationInputAmount" type="text" placeholder="Write Donation Amount"
-                   class="input input-bordered w-full"/>
+                                                            class="input input-bordered w-full"/>
             <div class="card-actions">
                 <button id="donateBtn" class="btn bg-lime-400 w-full text-xl font-bold">Donate Now</button>
             </div>
@@ -66,7 +67,7 @@
 </section>
 
 
-<section id="history" class="container mx-auto">
+<section id="history" class="container mx-auto hidden">
     <div id="historyCard" class="flex flex-col gap-4">
         <div>
             <h2></h2>
