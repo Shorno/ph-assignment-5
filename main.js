@@ -3,8 +3,6 @@ const parseFloatFromElement = (id) => parseFloat(getElement(id).innerText);
 const updateElementText = (id, value) => getElement(id).innerText = value.toFixed(2);
 const getInputValue = (id) => getElement(id).value;
 
-const donationHistory = []
-
 
 let mainBalance = parseFloatFromElement("mainBalance");
 let receivedDonationAmount = parseFloatFromElement("receivedDonationAmount");
@@ -21,13 +19,23 @@ let donationHeading = getElement("donationHeading");
 
 
 const handleDonationHistory = (donationAmount, donationHeading) => {
-    const donationTitle = getElement("donationTitle");
-    const donationTime = getElement("donationTime");
+    const text = donationHeading.innerText.split(" ").slice(1).join(" ");
+    const finalTitle = `${donationAmount} Taka is Donated ${text}`;
+    const time = `Date : ${new Date().toString()}`;
 
-    const text = donationHeading.innerText.split(" ").slice(1).join(" ")
+    const historyCard = getElement("historyCard");
 
-    donationTitle.innerText = `${donationAmount} Taka is Donated ${text}`;
-    donationTime.innerText = `Date : ${new Date().toString()}`;
+    const historyEntry = document.createElement("div");
+    historyEntry.classList.add("card", "bg-base-100", "w-full", "border");
+
+    historyEntry.innerHTML = `
+<div class="card-body">
+    <h2 class="card-title font-bold">${finalTitle}</h2>
+    <p>${time}</p>
+</div>
+`;
+
+    historyCard.appendChild(historyEntry);
 }
 
 
