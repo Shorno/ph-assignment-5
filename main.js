@@ -68,6 +68,8 @@ const handleDonation = (inputId, receivedAmountId, donationHeading, receivedDona
 
         modal.showModal();
         handleDonationHistory(donationInputAmount, donationHeading);
+
+        getElement(inputId).value = "";
     } else if (donationInputAmount < 0) {
         alert("Donation amount cannot be negative");
     } else {
